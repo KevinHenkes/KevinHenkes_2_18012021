@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -42,6 +43,21 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 		}
 		
 		return result;
+	}
+
+	@Override
+	public HashMap<String, Integer> CountSymptoms(List<String> symptoms) {
+		HashMap<String, Integer> symptomsOccurences = new HashMap<>();
+		for (String symptom : symptoms) {
+			if (!symptomsOccurences.containsKey(symptom)) {
+				symptomsOccurences.put(symptom, 1);
+			} else {
+				symptomsOccurences.put(symptom, symptomsOccurences.get(symptom) + 1);
+			}
+			
+		}
+		
+		return symptomsOccurences;
 	}
 
 }
