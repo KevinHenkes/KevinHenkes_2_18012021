@@ -15,5 +15,5 @@ public interface ISymptomWriter {
 	 * 
 	 * @return a file of all Symptoms obtained from a data source with count of occurences
 	 */
-	void WriteSymptoms (HashMap<String, Integer> symptomsOccurences);
+	void writeSymptoms (HashMap<String, Integer> symptomsOccurences);
 }

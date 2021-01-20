@@ -22,19 +22,15 @@ public class WriteSymptomDataToFile implements ISymptomWriter {
 	}
 
 	@Override
-	public void WriteSymptoms(HashMap<String, Integer> symptomsOccurences) {
+	public void writeSymptoms(HashMap<String, Integer> symptomsOccurences) {
 		if (filepath != null) {
-			try {
-				BufferedWriter writer = new BufferedWriter(new FileWriter(filepath));
-				
+			try (BufferedWriter writer = new BufferedWriter(new FileWriter(filepath))) {
 				for (String symptom : symptomsOccurences.keySet()) {
 					writer.write(symptom + " " + symptomsOccurences.get(symptom));
 					writer.newLine();
 				}
-				
-				writer.close();
 			} catch (IOException e) {
-				e.printStackTrace();
+				System.out.println(e.getMessage());
 			}
 		}
 		

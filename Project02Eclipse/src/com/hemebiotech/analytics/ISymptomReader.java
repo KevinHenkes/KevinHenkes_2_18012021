@@ -1,7 +1,6 @@
 package com.hemebiotech.analytics;
 
 import java.util.HashMap;
-import java.util.List;
 
 /**
  * Anything that will read symptom data from a source
@@ -17,12 +16,7 @@ public interface ISymptomReader {
 	 * 
 	 * @return a raw listing of all Symptoms obtained from a data source, duplicates are possible/probable
 	 */
-	List<String> GetSymptoms ();
+	HashMap<String, Integer> getSymptomsAndOccurencesFromFile();
 	
-	/**
-	 * Use the symptoms retrieves and count occurences of each.
-	 * 
-	 * @return a hashmap with all symptoms on keys and occurences on values.
-	 */
-	HashMap<String, Integer> CountSymptoms(List<String> symptoms);
 }
+	
